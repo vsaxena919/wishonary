@@ -1,0 +1,21 @@
+
+/**
+ * Revolution Sliders
+ *
+ * Sliders plugin
+ * https://revolution.themepunch.com/
+ */
+
+.rev_slider_wrapper {
+    .tp-thumb {
+        opacity: 0.5;
+        &.selected,
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.widget_revslider {
+    overflow: hidden;
+}

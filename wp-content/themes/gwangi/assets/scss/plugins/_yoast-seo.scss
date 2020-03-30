@@ -1,0 +1,50 @@
+
+/**
+ * Yoast SEO
+ *
+ * SEO plugin.
+ * https://wordpress.org/plugins/wordpress-seo/
+ */
+
+.yoast-breadcrumb {
+
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+
+    > li {
+        + li::before {
+            padding-right: $breadcrumb-item-padding;
+            padding-left: $breadcrumb-item-padding;
+        }
+    }
+
+    a {
+        padding-left: $breadcrumb-item-padding;
+        padding-right: $breadcrumb-item-padding;
+    }
+
+    .breadcrumb_last {
+        padding-left: $breadcrumb-item-padding;
+    }
+
+    > span > [typeof="v:Breadcrumb"] > a {
+        padding-left: 0;
+    }
+
+    .grimlock-wordpress-seo--breadcrumb_custom_header_displayed .site-content & {
+        display: none;
+    }
+
+    .grimlock-custom_header & {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        display: inline-flex;
+    }
+
+    .region--12-cols-center & {
+        justify-content: center;
+        text-align: center;
+    }
+
+}

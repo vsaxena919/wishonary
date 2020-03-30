@@ -1,0 +1,347 @@
+
+/**
+ * Yith
+ *
+ * Yith plugins styling
+ * https://yithemes.com/
+ */
+
+span.ajax-loading {
+    visibility: hidden;
+}
+
+.woocommerce,
+.woocommerce-page {
+
+    // Yith Wishlist
+    .yith-wcwl-add-to-wishlist {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-weight: $font-weight-bold;
+        color: $gray-600;
+
+        a {
+            color: inherit;
+            &:hover,
+            &:active,
+            &:focus {
+                opacity: 0.7;
+            }
+        }
+
+        a.add_to_wishlist {
+            &:before {
+                @include gwangi-icon;
+                content: $gwangi-love-off;
+            }
+            &:hover {
+                &:before {
+                    content: $gwangi-love-on;
+                }
+            }
+        }
+
+        .feedback {
+            &:before {
+                @include gwangi-icon;
+                content: $gwangi-love-on;
+                margin-right: 6px;
+                display: inline-block;
+                font-size: .98rem;
+                color: $primary;
+            }
+        }
+
+        .ajax-loading {
+            visibility: hidden;
+            display: none !important;
+            &[style*="visible"] {
+                display: inline-block !important;
+                visibility: visible;
+            }
+        }
+    }
+
+    &.single-product .product {
+        .ajax-loading {
+            margin: 0;
+            position: relative;
+            top: -2px;
+        }
+    }
+
+    .products {
+        .yith-wcwl-add-to-wishlist {
+
+            margin: 0;
+            position: absolute;
+            top: .5rem;
+            right: .5rem;
+            z-index: 9;
+            color: $primary;
+
+            .ajax-loading {
+
+                display: block !important;
+                width: auto !important;
+                height: auto !important;
+                margin: 0 !important;
+                color: inherit;
+
+                &[style*="hidden"] {
+                    display: none !important;
+                }
+
+                &[style*="visible"] {
+                    & + a {
+                        display: none !important;
+                    }
+                }
+            }
+
+            a.add_to_wishlist {
+                @include hide-text();
+                &:before {
+                    margin: 0;
+                    font-size: 1rem;
+                    color: $primary;
+                    top: 4px;
+                    position: absolute;
+                    right: 0;
+                }
+            }
+
+            .feedback {
+                @include hide-text();
+                & + a {
+                    display: none;
+                }
+                &:before {
+                    margin: 0;
+                }
+            }
+
+        }
+    }
+
+    .wishlist_table {
+
+        thead {
+            display: none;
+        }
+        tr td.product-stock-status span.wishlist-in-stock {
+            color: $success;
+        }
+        .yith-wcwl-share {
+            margin-bottom: 0;
+        }
+        .yith-wcwl-share-title {
+            margin-top: 0;
+        }
+        tr,
+        tfoot {
+            border-top: 4px solid $gray-100;
+        }
+        tfoot {
+            display: none !important;
+        }
+        td.product-name {
+            > a:first-of-type {
+                font-size: 1.2em;
+                color: inherit;
+                margin-bottom: .5rem;
+                display: block;
+            }
+            a.yith-wcqv-button {
+                padding: .2rem .4rem;
+                font-size: 1em;
+            }
+        }
+        td.product-remove {
+            padding: 16px 12px;
+        }
+        td.product-thumbnail {
+            img {
+                max-width: 100px !important;
+            }
+        }
+        td.product-add-to-cart a {
+            display: inline-block !important;
+            padding: 5px 10px;
+            border: 0;
+            line-height: 23px;
+            margin-top: 5px;
+        }
+        .amount {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    #yith-wcwl-popup-message {
+        display: none !important;
+    }
+
+    .wishlist-title {
+        display: none;
+    }
+
+
+
+
+    // YITH infinite scroll
+    .yith-infs-loader {
+        margin: 1rem 0 2rem 0;
+        img {
+            display: none;
+        }
+        &:before {
+            @include icon-spin();
+            font-size: 2.9rem;
+            color: inherit;
+            opacity: .3;
+            display: inline-block;
+        }
+    }
+
+
+    // Yith quick view
+    .yith-wcqv-button {
+
+        &:before {
+            @include gwangi-icon();
+            content: $gwangi-visibility-on;
+            margin-right: 3px;
+        }
+
+        .blockUI.blockOverlay {
+            background-image: none !important;
+            opacity: 1 !important;
+            background-color: $gray-700 !important;
+            cursor: wait !important;
+            &:before {
+                @include icon-spin();
+                font-size: 1rem;
+                color: #fff;
+            }
+        }
+    }
+
+    #yith-quick-view-modal {
+        .yith-wcqv-main {
+            box-shadow: $modal-content-box-shadow-sm-up;
+            border-radius: $border-radius;
+        }
+        .woocommerce-product-gallery__image {
+            pointer-events: none;
+        }
+        p.price {
+            font-size: 1em;
+        }
+        .woocommerce-product-rating {
+            margin-bottom: 4px;
+            .star-rating {
+                margin-top: 0;
+            }
+        }
+        #yith-quick-view-close {
+            @include hide-text();
+            top: 10px;
+            right: 10px;
+            &:before {
+                @include gwangi-icon();
+                content: $gwangi-remove;
+                color: $black-faded;
+                font-size: 1rem;
+            }
+        }
+        &.open {
+            .yith-wcqv-main {
+                overflow-y: auto;
+            }
+        }
+    }
+
+}
+
+// Quick view modal
+#yith-quick-view-modal {
+    padding: 1rem;
+    overflow: hidden;
+    .yith-wcqv-wrapper {
+        overflow: hidden !important;
+        height: 100% !important;
+        max-height: 650px !important;
+        .yith-wcqv-main {
+            overflow: hidden !important;
+            height: 100% !important;
+            #yith-quick-view-content {
+                height: 100% !important;
+                overflow: auto !important;
+            }
+        }
+    }
+    #yith-quick-view-content div.summary {
+        padding: 2rem;
+        .input-text {
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+    }
+}
+
+.yith-ajaxsearchform-container {
+
+    margin-top: 1rem;
+
+    #yith-ajaxsearchform {
+        position: relative;
+        > div {
+            display: flex;
+            > p {
+                width: 100%;
+                &:last-child {
+                    flex: 0 0 auto;
+                    width: auto;
+                    max-width: none;
+                    padding-left: .5rem;
+                }
+                input[type="search"] {
+                    width: 100%;
+                    height: 50px;
+                    &[style*="background-image"] {
+                        background-position: 98% center !important;
+                        background-blend-mode: difference;
+                    }
+                }
+            }
+        }
+        input[type="submit"] {
+            height: 50px;
+            margin-top: 0;
+            padding: .5rem 1.2rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            z-index: 2;
+        }
+    }
+
+
+
+    .autocomplete-suggestions {
+        margin-top: 8px;
+        border: 0;
+        padding: 0;
+        .autocomplete-suggestion {
+            word-wrap: break-word;
+            padding: 15px;
+            line-height: 1.2em;
+            background: none;
+            &:hover {
+                background: $black-faded;
+            }
+        }
+    }
+
+}

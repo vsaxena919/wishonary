@@ -1,0 +1,119 @@
+
+/**
+ * Jetpack
+ *
+ * The Swiss army knife of WordPress plugin.
+ * https://wordpress.org/plugins/jetpack/
+ */
+
+
+// Tiled Gallery
+.tiled-gallery {
+	.tiled-gallery-caption {
+		background-color: $tiled-gallery-caption-bg;
+	}
+}
+
+
+// Fullscreen gallery
+.jp-carousel-wrap {
+	.jp-carousel-overlay {
+		background-color: $jp-carousel-overlay;
+	}
+	.jp-carousel-close-hint {
+		span {
+			height: 28px;
+			width: 28px;
+		}
+	}
+}
+
+
+// Slideshow
+.slideshow-window.jetpack-slideshow {
+	border-radius: $jp-slideshow-corner;
+	background-color: $jp-components-bg;
+}
+
+
+// Jetpack forms
+form.contact-form {
+    > div {
+        @extend .form-group, .clearfix;
+    }
+    input[type='text'],
+    input[type='email'],
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+	label {
+		text-align: left;
+	}
+    label.checkbox,
+    label.radio {
+        margin-left: 1.25rem;
+    }
+    label.checkbox,
+    label.radio,
+    label.grunion-checkbox-multiple-label {
+        font-weight: inherit;
+    }
+	input[type="submit"] {
+		width: 100%;
+	}
+	p.contact-submit {
+		margin-bottom: 0;
+	}
+}
+
+div[id^="contact-form"] {
+    > h3 {
+	    @extend .alert;
+	    @include alert-variant-type($success);
+        font-size: 1em;
+        a {
+            color: inherit;
+        }
+    }
+    .contact-form-submission {
+        margin: 1rem 0;
+        padding-top: .3rem;
+        padding-bottom: .3rem;
+        font-size: .9em;
+    }
+}
+
+.form-errors {
+	@extend .alert;
+	@include alert-variant-type($danger);
+	list-style: none;
+	.form-error-message {
+		color: $danger;
+	}
+}
+
+
+// Carousel
+
+.jp-carousel-info {
+	display: none !important;
+}
+
+.jp-carousel-left-column-wrapper {
+	display: none !important;
+}
+
+.jp-carousel-image-meta {
+	float: none !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.jp-carousel-transitions .jp-carousel-close-hint {
+	position: fixed;
+	text-align: right;
+	right: 12px;
+	width: auto;
+}
